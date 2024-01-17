@@ -14,6 +14,6 @@ export default Screen4
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: '#1F0909',
+    backgroundColor: '#290720',
   },
 });

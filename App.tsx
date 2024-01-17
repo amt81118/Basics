@@ -1,8 +1,7 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import AllScreen from './screens/AllScreen';
-import Screen1 from './screens/Screen1';
+import Routes from './routes/Routes';
 
 const App = () => {
   useEffect(() => {
@@ -10,7 +9,7 @@ const App = () => {
   }, []);
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <AllScreen />
+      <Routes />
     </SafeAreaView>
   );
 };
