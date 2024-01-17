@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -7,9 +7,9 @@ const App = () => {
     SplashScreen.hide();
   }, []);
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <SafeAreaView style={{backgroundColor: 'black', flex: 1}}>
+      <Text style={{color: 'firebrick'}}> App</Text>
+    </SafeAreaView>
   );
 };
 
