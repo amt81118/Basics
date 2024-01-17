@@ -2,8 +2,9 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import Routes from './routes/Routes';
-import {store} from './services/redux/store';
+import {persistor, store} from './services/redux/store';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const AppWrapper = () => {
   return (
@@ -19,7 +20,9 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
-      <AppWrapper />
+      <PersistGate loading={null} persistor={persistor}>
+        <AppWrapper />
+      </PersistGate>
     </Provider>
   );
 };

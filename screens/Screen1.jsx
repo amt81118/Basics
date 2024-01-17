@@ -6,14 +6,17 @@ import {
   increment,
   incrementByAmount,
   decrementByAmount,
+  reset,
 } from '../services/redux/counterSlice';
 
 const Screen1 = () => {
-  const count = useSelector(state => state.counter.value);
+  const {value, value1} = useSelector(state => state.counter);
   const dispatch = useDispatch();
   return (
     <>
-      <Text>{count}</Text>
+      <Text>
+        {value} ==== {value1}
+      </Text>
       <View style={styles.safeAreaView}>
         <TouchableOpacity onPress={() => dispatch(increment())}>
           <Text>Increment +</Text>
@@ -26,6 +29,9 @@ const Screen1 = () => {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => dispatch(decrementByAmount(10))}>
           <Text>Decrement by amount -</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => dispatch(reset())}>
+          <Text>{`Reset ==>`} </Text>
         </TouchableOpacity>
       </View>
     </>

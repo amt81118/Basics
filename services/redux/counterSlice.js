@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 11,
+  value: 0,
+  value1: 0,
 };
-
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
@@ -14,21 +14,34 @@ export const counterSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.value += 1;
+      state.value1 += 1;
     },
     decrement: state => {
       state.value -= 1;
+      state.value1 -= 1;
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload;
+      state.value1 += action.payload;
     },
     decrementByAmount: (state, action) => {
       state.value -= action.payload;
+      state.value1 -= action.payload;
+    },
+    reset: (state, action) => {
+      state.value = 0;
+      state.value1 = 0;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {increment, decrement, incrementByAmount, decrementByAmount} =
-  counterSlice.actions;
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  decrementByAmount,
+  reset,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
