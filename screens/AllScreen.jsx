@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import CustomButton from '../components/customButton'
 import { hp, wp } from '../helper'
+import {MyProvider, useMyContext} from '../contexts/MyProvider';
 
 const AllScreen = ({navigation}) => {
   const buttons = [
@@ -32,7 +33,7 @@ const AllScreen = ({navigation}) => {
     },
   ];
   return (
-    <View style={styles.safeAreaView}>
+    <MyProvider>
       {buttons.map(e => (
         <CustomButton
           btnText={e.btnText}
@@ -42,7 +43,7 @@ const AllScreen = ({navigation}) => {
           key={e.btnText}
         />
       ))}
-    </View>
+    </MyProvider>
   );
 };
 
