@@ -1,33 +1,33 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
-  value1: 0,
+  field1: 2,
+  field2: 0,
 };
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'counter', //?It is only for debug purpose
   initialState,
   reducers: {
     increment: state => {
-      state.value += 1;
-      state.value1 += 1;
+      state.field1 += 1;
+      state.field2 += 1;
     },
     decrement: state => {
-      state.value -= 1;
-      state.value1 -= 1;
+      state.field1 -= 1;
+      state.field2 -= 1;
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload;
-      state.value1 += action.payload;
+      state.field1 += action.payload;
+      state.field2 += action.payload;
     },
     decrementByAmount: (state, action) => {
-      state.value -= action.payload;
-      state.value1 -= action.payload;
+      state.field1 -= action.payload;
+      state.field2 -= action.payload;
     },
     // reset: () => initialState, // Return a new serializable object
     reset: (state, action) => {
-      state.value = 0;
-      state.value1 = 0;
+      state.field1 = 0;
+      state.field2 = 0;
     },
   },
 });

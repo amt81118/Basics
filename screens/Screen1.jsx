@@ -8,14 +8,18 @@ import {
   decrementByAmount,
   reset,
 } from '../services/redux/counterSlice';
+import {setValue2, setValue3} from '../services/redux/secondSlice';
 
 const Screen1 = () => {
-  const {value, value1} = useSelector(state => state.counter);
+  const {field1, field2} = useSelector(state => state.rootReducer.counter);
+  const {value2, value3} = useSelector(state => state.rootReducer.second);
+  console.log({field1}, {field2});
+
   const dispatch = useDispatch();
   return (
     <>
       <Text>
-        {value} ==== {value1}
+        {field1} ==== {field2}
       </Text>
       <View style={styles.safeAreaView}>
         <TouchableOpacity onPress={() => dispatch(increment())}>
@@ -33,6 +37,17 @@ const Screen1 = () => {
         <TouchableOpacity onPress={() => dispatch(reset())}>
           <Text>{`Reset ==>`} </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(setValue3('channged333'));
+            dispatch(setValue2('channged222'));
+          }}>
+          <Text>{`Changed ==>`} </Text>
+        </TouchableOpacity>
+        <Text>
+          {value2}
+          {value3}
+        </Text>
       </View>
     </>
   );
